@@ -46,3 +46,13 @@ class User(AbstractUser):
         return self.email
     class Meta:
         db_table = "users"
+
+class Post(models.Model):
+    pass
+
+
+class Photo(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='photos')
+    image = models.ImageField(upload_to='photos/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    preview = models.ImageField(upload_to='previews/', null=True, blank=True)
