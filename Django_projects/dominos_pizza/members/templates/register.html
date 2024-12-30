@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h2>Register Here</h2>
-        <form method='POST'>
+        <form method='POST' action="{%url 'register'%}">
             {% csrf_token%}
             {{form.as_p}}
 
